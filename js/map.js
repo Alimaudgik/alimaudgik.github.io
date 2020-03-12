@@ -16,15 +16,4 @@
           mapOn.classList.add('location__off');
         }
       });
-
-      window.addEventListener('keydown', function(evt) {
-        evt.preventDefault(evt);
-        
-        if (evt.keyCode === 27) {
-          if (mapOn.classList.contains('location__on')) {
-            mapOn.classList.remove('location__on');
-            mapOn.classList.add('location__off');
-          };
-        }
-      });
     
