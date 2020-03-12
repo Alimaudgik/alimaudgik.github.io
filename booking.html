@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Бронирование Yatra</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="description" content="Travel with Yatra">
+    <meta name="viewport" content="width=device-width,initial-scale-1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    
+    <link rel="preload" href="fonts/Raleway/Raleway-Regular.woff2" as="font">
+    <link rel="preload" href="fonts/Raleway/Raleway-Italic.woff2" as="font">
+    <link rel="preload" href="fonts/Raleway/Raleway-Bold.woff2" as="font">
+    <link rel="preload" href="fonts/Raleway/Raleway-BoldItalic.woff2" as="font">
+    <link rel="stylesheet" href="css/style.min.css" type="text/css">
+    <link rel="stylesheet" href="fonts/FontAwesome/css/all.min.css" type="text/css">
+  </head>
+  <body class="page-inside">
+    <header class="header inside__header booking__header">
+      <div class="header__wrapper section__wrapper">
+        <nav class="main-nav">
+          <div class="main__logo">
+            <a class="main__link" href="index.html" title="Лого">
+              <img src="img/logo-yatra.png" alt="Лого" width="218" height="53">
+            </a>
+          </div>
+
+          <ul class="main-nav__list">
+            <li class="main-nav__item">
+              <a class="main-nav__link" href="index.html" title="Главная">Главная</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__link" href="about.html" title="О нас">О нас</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__link" href="tours.html" title="Туры">Туры</a>
+            </li>
+            <li class="main-nav__item current">
+              <a class="main-nav__link" href="booking.html" title="Бронирование">Бронирование</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__link" href="news.html" title="Новости">Новости</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__link" href="reviews.html" title="Отзывы">Отзывы</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__link" href="contacts.html" title="Контакты">Контакты</a>
+            </li>
+          </ul>
+
+          <button class="menu-open open">Открыть</button>
+          <button class="menu-close close">Закрыть</button>
+        </nav>
+
+        <div class="crumbs__wrapper">
+          <ul class="crumbs__list">
+            <li class="crumbs__item">
+              <a class="crumbs__link" href="index.html">Главная</a>
+            </li>
+            <li class="crumbs__item">
+              <a class="crumbs__link current" href="booking.html">Бронирование</a>
+            </li>
+          </ul>
+        </div>
+  
+        <h1 class="header-inside__title">Бронирование</h1>
+      </div>
+      
+    </header>
+
+    <main class="container">
+      
+      <section class="booking">
+        <div class="booking__wrapper section__wrapper">
+
+          <ul class="booking__list">
+            <li class="booking__item">
+              <input id="flights" name="booking" value="flights" type="radio" checked=""><label class="booking__label flights" for="flights">Flights</label>
+              <form class="booking__form flights__form" action="flights.php">
+                <ul class="flights__formlist booking__formlist">
+                  <li class="flights__item booking__formitem">
+                    <label for="flights__from" class="flights__item--title formlist__title">Flying from:</label>
+                    <select class="flights__item--input" name="flights__from" id="flights__from">
+                      <option value="placeholder-from" disabled="" selected="" hidden="">City of Airport</option>
+                      <option value="Minsk">Минск</option>
+                      <option value="Moscow">Москва</option>
+                      <option value="Kiev">Киев</option>
+                      <option value="Vilnius">Вильнюс</option>
+                      <option value="Warsaw">Варшава</option>
+                      <option value="Any">Любой</option>
+                    </select>
+                  </li>
+                  <li class="flights__item booking__formitem">
+                    <label for="flights__to" class="flights__item--title formlist__title">To:</label>
+                    <select class="flights__item--input" name="flights__to" id="flights__to">
+                      <option value="placeholder-to" disabled="" selected="" hidden="">City of Airport</option>
+                      <option value="Minsk">Минск</option>
+                      <option value="Moscow">Москва</option>
+                      <option value="Kiev">Киев</option>
+                      <option value="Vilnius">Вильнюс</option>
+                      <option value="Warsaw">Варшава</option>
+                      <option value="Any">Любой</option>
+                    </select>
+                  </li>
+                  <li class="flights__item booking__formitem">
+                    <label for="departing" class="flights__item--title formlist__title">Departing:</label>
+                    <input id="departing" class="date" type="text" name="departing" maxlength="10" placeholder="MM.DD.YYYY" pattern="[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}">
+                  </li>
+                  <li class="flights__item booking__formitem">
+                    <label for="returning" class="flights__item--title formlist__title">Returning:</label>
+                    <input id="returning" class="date" type="text" name="returning" maxlength="10" placeholder="MM.DD.YYYY" pattern="[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}">
+                  </li>
+                  <li class="flights__item booking__formitem people-item">
+                    <div class="adult">
+                      <label for="adult" class="flights__item--title formlist__title">Adult:</label>
+                      <select class="flights__item--input people-number" name="adult" id="adult">
+                        <option value="one" selected="">1</option>
+                        <option value="two">2</option>
+                        <option value="three">3</option>
+                        <option value="four">4</option>
+                        <option value="five">5</option>
+                        <option value="six">6</option>
+                        <option value="seven">7</option>
+                        <option value="eight">8</option>
+                        <option value="nine">9</option>
+                        <option value="ten">10</option>
+                        <option value="eleven">11</option>
+                        <option value="twelve">12</option>
+                      </select>
+                    </div>
+                    <div class="child">
+                      <label for="child" class="flights__item--title formlist__title">Child:</label>
+                      <select class="flights__item--input people-number" name="child" id="child">
+                        <option value="one" selected="">1</option>
+                        <option value="two">2</option>
+                        <option value="three">3</option>
+                        <option value="four">4</option>
+                        <option value="five">5</option>
+                        <option value="six">6</option>
+                        <option value="seven">7</option>
+                        <option value="eight">8</option>
+                        <option value="nine">9</option>
+                        <option value="ten">10</option>
+                        <option value="eleven">11</option>
+                        <option value="twelve">12</option>
+                      </select>
+                    </div>
+                  </li>
+                  <li class="booking__formitem booking__button--wrapper">
+                    <input class="booking__button button" type="submit" value="Search here">
+                  </li>
+                </ul>
+              </form>
+            </li>
+
+            <li class="booking__item">
+              <input id="hotels" name="booking" value="hotels" type="radio"><label class="booking__label hotels" for="hotels">Hotels</label>
+              <form class="form-none booking__form flights__form" action="hotels.php">
+                
+              </form>
+            </li>
+
+            <li class="booking__item">
+              <input id="cars" name="booking" value="cars" type="radio"><label class="booking__label cars" for="cars">Cars</label>
+              <form class="form-none booking__form flights__form" action="cars.php">
+                
+              </form>
+            </li>
+
+            <li class="booking__item">
+              <input id="cruises" name="booking" value="cruises" type="radio"><label class="booking__label cruises" for="cruises">Cruises</label>
+              <form class="form-none booking__form flights__form" action="cruises.php">
+                
+              </form>
+            </li>
+          </ul>
+  
+          <div class="slogan">
+            <h2 class="slogan__title section__title">Почему стоит работать именно с нами</h2>
+            <p class="line"><span class="line-inside"></span></p>
+            <p class="slogan__text section__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+          </div>
+  
+          <ul class="benefits__list">
+            <li class="benefits__item">
+              <div class="benefits__item--wrapper">
+                <h3 class="benefits__item--title">Amazing Travel</h3>
+                <p class="benefits__item--image amazin-travel"></p>
+                <p class="benefits__item--text">Nam liber tempor cum soluta nobis 
+                  eleifend option congue nihil imperdiet doming id quod mazim.</p>
+              </div>
+            </li>
+            <li class="benefits__item">
+              <div class="benefits__item--wrapper">
+                <h3 class="benefits__item--title">Discover</h3>
+                <p class="benefits__item--image discover"></p>
+                <p class="benefits__item--text">Nam liber tempor cum soluta nobis 
+                  eleifend option congue nihil imperdiet doming id quod mazim.</p>
+              </div>
+            </li>
+            <li class="benefits__item">
+              <div class="benefits__item--wrapper">
+                <h3 class="benefits__item--title">Book your trip</h3>
+                <p class="benefits__item--image book"></p>
+                <p class="benefits__item--text">Nam liber tempor cum soluta nobis 
+                  eleifend option congue nihil imperdiet doming id quod mazim.</p>
+              </div>
+            </li>
+            <li class="benefits__item">
+              <div class="benefits__item--wrapper">
+                <h3 class="benefits__item--title">Nice support</h3>
+                <p class="benefits__item--image support"></p>
+                <p class="benefits__item--text">Nam liber tempor cum soluta nobis 
+                  eleifend option congue nihil imperdiet doming id quod mazim.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      
+      <section class="join">        
+        <div class="join__wrapper section__wrapper">
+          <div class="slogan">
+            <h2 class="slogan__title join__title section__title">подпишитесь на последние новости</h2>
+            <p class="line join__line"><span class="line-inside"></span></p>
+          </div>
+
+          <div class="join__form--wrapper">
+            <form class="join__form" action="join-action.php">
+              <input id="join-email" class="join__input" name="join-email" type="text" placeholder="Введите свой почтовый адресс" maxlength="30">
+              <input id="join-button" class="join__button" name="join__button" type="submit" value="ввод">
+            </form>  
+          </div>
+        </div>
+      </section>
+
+      <section class="partners">
+        <div class="partners__wrapper section__wrapper">
+          <div class="slogan">
+            <h2 class="partners__title section__title">Наши надежные партнеры</h2>
+            <p class="line"><span class="line-inside"></span></p>
+            <p class="slogan__text section__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+          </div>
+
+          <div class="partner__list--wrapper">
+            <ul class="partners__list">
+              <li class="partners__item">
+                <p class="partners__image--wrapper">
+                  <a class="partners__link" href="#" title="Партнер-1">
+                    <img class="partners__image" src="img/logo-airbnb.png" alt="Партнер-1" width="" height="" title="Партнер-1">
+                  </a>
+                </p>
+              </li>
+              <li class="partners__item">
+                <p class="partners__image--wrapper">
+                  <a class="partners__link" href="#" title="Партнер-2">
+                    <img class="partners__image" src="img/logo-aviasales.png" alt="Партнер-2" width="" height="" title="Партнер-2">
+                  </a>
+                </p>
+              </li>
+              <li class="partners__item">
+                <p class="partners__image--wrapper">
+                  <a class="partners__link" href="#" title="Партнер-3">
+                    <img class="partners__image" src="img/logo-booking.png" alt="Партнер-3" width="" height="" title="Партнер-3">
+                  </a>
+                </p>
+              </li>
+              <li class="partners__item">
+                <p class="partners__image--wrapper">
+                  <a class="partners__link" href="#" title="Партнер-4">
+                    <img class="partners__image" src="img/logo-expedia.png" alt="Партнер-4" width="" height="" title="Партнер-4">
+                  </a>
+                </p>
+              </li>
+              <li class="partners__item">
+                <p class="partners__image--wrapper">
+                  <a class="partners__link" href="#" title="Партнер-5">
+                    <img class="partners__image" src="img/logo-itacademy.svg" alt="Партнер-5" width="" height="" title="Партнер-5">
+                  </a>
+                </p>
+              </li>
+              <li class="partners__item">
+                <p class="partners__image--wrapper">
+                  <a class="partners__link" href="#" title="Партнер-6">
+                    <img class="partners__image logo-juve" src="img/logo-juventus.svg" alt="Партнер-6" width="" height="" title="Партнер-6">
+                  </a>
+                </p>
+              </li>
+              <li class="partners__item">
+                <p class="partners__image--wrapper">
+                  <a class="partners__link" href="#" title="Партнер-7">
+                    <img class="partners__image logo-trip" src="img/logo-tripadvisor.svg" alt="Партнер-7" width="" height="" title="Партнер-7">
+                  </a>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <footer class="footer">
+      <div class="footer__wrapper section__wrapper">
+
+        <div class="footer__about footer__item">
+          <h3 class="footer__about--title footer__title lora-font">About Company</h3>
+
+          <p class="footer__about--text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, magna aliqua. Ut exercitation ullamco</p>
+          <p class="footer__about--text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore </p>
+        </div>
+
+        <div class="footer__contacts footer__item">
+          <div class="footer__contacts--wrapper">
+            <div class="footer__contacts--data">
+              <p class="footer__contacts--logo">
+                <a class="footer__contacts--link" href="index.html" title="Лого">
+                  <img src="img/logo-yatra.png" alt="Лого" width="218" height="53">
+                </a>
+              </p>
+
+              <p class="footer__contacts--text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+              <ul class="footer__contacts--list">
+                <li class="footer__contacts--item phone">+375 29 123-45-67</li>
+                <li class="footer__contacts--item mail"><a href="mailto:info@yatra.com">info@yatra.com</a></li>
+                <li class="footer__contacts--item map">Location</li>
+              </ul>
+            </div>
+
+            <ul class="footer__serv--list">
+              <li class="footer__serv--item">
+                <a class="footer__serv--link" href="about.html" title="About us">About us</a>
+              </li>
+              <li class="footer__serv--item">
+                <a class="footer__serv--link" href="tours.html" title="Tours">Tours</a>
+              </li>
+              <li class="footer__serv--item">
+                <a class="footer__serv--link" href="booking.html" title="Booking">Booking</a>
+              </li>
+              <li class="footer__serv--item">
+                <a class="footer__serv--link" href="blog.html" title="Blog">Blog</a>
+              </li>
+              <li class="footer__serv--item">
+                <a class="footer__serv--link" href="reviews.html" title="Reviews">Reviews</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="footer__about footer__email footer__item">
+          <h3 class="footer__about--title footer__title lora-font">Join our mailing list</h3>
+          <p class="footer__about--text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, magna aliqua. Ut exercitation ullamco</p>
+
+          <form class="footer__about--email" action="join-mail.php">
+            <div class="form__about--wrapper">
+              <input id="email" class="email__addres" type="text" name="email" placeholder="Enter your email address">
+              <input class="email__button lora-font" type="submit" value="Send"> 
+            </div>
+          </form>
+
+          <div class="footer__about--social social__list--wrapper">
+            <h4 class="social__list--title lato-font">Stay connected</h4>
+            <ul class="social__list">
+              <li class="social__item">
+                <a class="social__item--link facebook" href="https://facebook.com" target="_blank" rel="noopener" title="facebook"></a>
+              </li>              
+              <li class="social__item">
+                <a class="social__item--link vkontakte" href="https://vk.com" target="_blank" rel="noopener" title="vkontakte"></a>
+              </li>
+              <li class="social__item">
+                <a class="social__item--link twitter" href="https://twitter.com" target="_blank" rel="noopener" title="twitter"></a>
+              </li>
+              <li class="social__item">
+                <a class="social__item--link instagram" href="https://instagram.com" target="_blank" rel="noopener" title="instagram"></a>
+              </li>
+              <li class="social__item">
+                <a class="social__item--link youtube" href="https://youtube.com" target="_blank" rel="noopener" title="youtube"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="footer__copyright lato-font">Copyright © 2020. All Rights Reserved.</p>
+
+        <iframe class="footer__location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4700.475081906465!2d27.520918559561448!3d53.909754700863445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbc55f35bf3dad%3A0xaabda25bdeeb761f!2z0YPQuy4g0KHQutGA0YvQs9Cw0L3QvtCy0LAgMTQsINCc0LjQvdGB0Lo!5e0!3m2!1sru!2sby!4v1583080882488!5m2!1sru!2sby" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+      
+      </div>
+    </footer>
+  </body>
+</html>

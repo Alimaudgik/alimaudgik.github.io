@@ -19,7 +19,7 @@
   </head>
   <body class="main-page">
     <header class="header">
-      <div class="header__wrapper">
+      <div class="header__wrapper section__wrapper">
         <nav class="main-nav">
           <div class="main__logo">
             <a class="main__link" href="index.html" title="Лого">
@@ -27,37 +27,37 @@
             </a>
           </div>
 
-          <ul class="main-nav__list">
+          <ul class="main-nav__list menu__close">
             <li class="main-nav__item current">
-              <a class="main-nav__link" href="http://index.html" title="Home">Home</a>
+              <a class="main-nav__link" href="index.html" title="Главная">Главная</a>
             </li>
             <li class="main-nav__item">
-              <a class="main-nav__link" href="http://about.html" title="About us">About us</a>
+              <a class="main-nav__link" href="about.html" title="О нас">О нас</a>
             </li>
             <li class="main-nav__item">
-              <a class="main-nav__link" href="http://tours.html" title="Tours">Tours</a>
+              <a class="main-nav__link" href="tours.html" title="Туры">Туры</a>
             </li>
             <li class="main-nav__item">
-              <a class="main-nav__link" href="http://booking.html" title="Booking">Booking</a>
+              <a class="main-nav__link" href="booking.html" title="Бронирование">Бронирование</a>
             </li>
             <li class="main-nav__item">
-              <a class="main-nav__link" href="http://blog.html" title="Blog">Blog</a>
+              <a class="main-nav__link" href="news.html" title="Новости">Новости</a>
             </li>
             <li class="main-nav__item">
-              <a class="main-nav__link" href="reviews.html" title="Reviews">Reviews</a>
+              <a class="main-nav__link" href="reviews.html" title="Отзывы">Отзывы</a>
             </li>
             <li class="main-nav__item">
-              <a class="main-nav__link" href="contacts.html" title="Contacts">Contact us</a>
+              <a class="main-nav__link" href="contacts.html" title="Контакты">Контакты</a>
             </li>
           </ul>
 
-          <button class="menu-open open">Открыть</button>
-          <button class="menu-close close">Закрыть</button>
+          <button class="menu-btn btn-on open">Открыть</button>
+          <button class="menu-btn btn-off close">Закрыть</button>
         </nav>
   
         <div class="intro">
-          <p class="intro__text welcome">Welcome to</p><br>
-          <p class="intro__text agency">Our Travel Agency</p><br>
+          <p class="intro__text welcome">Добро пожаловать</p><br>
+          <p class="intro__text agency">В наше туристическое агенство</p><br>
           <p class="intro__text">Lorem Ipsum is simply dummy text of the printing and industry.</p>
         </div>
       </div>
@@ -65,18 +65,18 @@
     </header>
 
     <main class="container">
-      <section class="prebooking">
-        <div class="prebooking__wrapper">
+      <section class="booking">
+        <div class="booking__wrapper section__wrapper">
 
-          <ul class="prebooking__list">
-            <li class="prebooking__item">
-              <input id="flights" name="prebooking" value="flights" type="radio" checked=""><label class="prebooking__label flights" for="flights">Flights</label>
-              <form class="prebooking__form flights__form" action="flights.php">
-                <ul class="flights__formlist prebooking__formlist">
-                  <li class="flights__item prebooking__formitem">
-                    <label for="flights__from" class="flights__item--title formlist__title">Flying from:</label>
+          <ul class="booking__list">
+            <li class="booking__item">
+              <input id="flights" name="booking" value="flights" type="radio" checked=""><label class="booking__label flights" for="flights">Flights</label>
+              <form class="booking__form flights__form" action="flights.php">
+                <ul class="flights__formlist booking__formlist">
+                  <li class="flights__item booking__formitem">
+                    <label for="flights__from" class="flights__item--title formlist__title">Из:</label>
                     <select class="flights__item--input" name="flights__from" id="flights__from">
-                      <option value="placeholder-from" disabled="" selected="" hidden="">City of Airport</option>
+                      <option value="placeholder-from" disabled="" selected="" hidden="">Город вылета</option>
                       <option value="Minsk">Минск</option>
                       <option value="Moscow">Москва</option>
                       <option value="Kiev">Киев</option>
@@ -85,10 +85,10 @@
                       <option value="Any">Любой</option>
                     </select>
                   </li>
-                  <li class="flights__item prebooking__formitem">
-                    <label for="flights__to" class="flights__item--title formlist__title">To:</label>
+                  <li class="flights__item booking__formitem">
+                    <label for="flights__to" class="flights__item--title formlist__title">В:</label>
                     <select class="flights__item--input" name="flights__to" id="flights__to">
-                      <option value="placeholder-to" disabled="" selected="" hidden="">City of Airport</option>
+                      <option value="placeholder-to" disabled="" selected="" hidden="">Город прилета</option>
                       <option value="Minsk">Минск</option>
                       <option value="Moscow">Москва</option>
                       <option value="Kiev">Киев</option>
@@ -97,17 +97,17 @@
                       <option value="Any">Любой</option>
                     </select>
                   </li>
-                  <li class="flights__item prebooking__formitem">
-                    <label for="departing" class="flights__item--title formlist__title">Departing:</label>
-                    <input id="departing" class="date" type="text" name="departing" maxlength="10" placeholder="MM.DD.YYYY" pattern="[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}">
+                  <li class="flights__item booking__formitem">
+                    <label for="departing" class="flights__item--title formlist__title">Дата туда:</label>
+                    <input id="departing" class="date" type="text" name="departing" maxlength="10" placeholder="ДД.ММ.ГГГГ" pattern="[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}">
                   </li>
-                  <li class="flights__item prebooking__formitem">
-                    <label for="returning" class="flights__item--title formlist__title">Returning:</label>
-                    <input id="returning" class="date" type="text" name="returning" maxlength="10" placeholder="MM.DD.YYYY" pattern="[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}">
+                  <li class="flights__item booking__formitem">
+                    <label for="returning" class="flights__item--title formlist__title">Дата обратно:</label>
+                    <input id="returning" class="date" type="text" name="returning" maxlength="10" placeholder="ДД.ММ.ГГГГ" pattern="[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}">
                   </li>
-                  <li class="flights__item prebooking__formitem people-item">
+                  <li class="flights__item booking__formitem people-item">
                     <div class="adult">
-                      <label for="adult" class="flights__item--title formlist__title">Adult:</label>
+                      <label for="adult" class="flights__item--title formlist__title">Взрослые:</label>
                       <select class="flights__item--input people-number" name="adult" id="adult">
                         <option value="one" selected="">1</option>
                         <option value="two">2</option>
@@ -124,7 +124,7 @@
                       </select>
                     </div>
                     <div class="child">
-                      <label for="child" class="flights__item--title formlist__title">Child:</label>
+                      <label for="child" class="flights__item--title formlist__title">Дети:</label>
                       <select class="flights__item--input people-number" name="child" id="child">
                         <option value="one" selected="">1</option>
                         <option value="two">2</option>
@@ -141,30 +141,30 @@
                       </select>
                     </div>
                   </li>
-                  <li class="prebooking__formitem prebooking__button--wrapper">
-                    <input class="prebooking__button button" type="submit" value="Search here">
+                  <li class="booking__formitem booking__button--wrapper">
+                    <input class="booking__button button" type="submit" value="Поиск">
                   </li>
                 </ul>
               </form>
             </li>
 
-            <li class="prebooking__item">
-              <input id="hotels" name="prebooking" value="hotels" type="radio"><label class="prebooking__label hotels" for="hotels">Hotels</label>
-              <form class="form-none prebooking__form flights__form" action="hotels.php">
+            <li class="booking__item">
+              <input id="hotels" name="booking" value="hotels" type="radio"><label class="booking__label hotels" for="hotels">Отели</label>
+              <form class="form-none booking__form flights__form" action="hotels.php">
                 
               </form>
             </li>
 
-            <li class="prebooking__item">
-              <input id="cars" name="prebooking" value="cars" type="radio"><label class="prebooking__label cars" for="cars">Cars</label>
-              <form class="form-none prebooking__form flights__form" action="cars.php">
+            <li class="booking__item">
+              <input id="cars" name="booking" value="cars" type="radio"><label class="booking__label cars" for="cars">Авто</label>
+              <form class="form-none booking__form flights__form" action="cars.php">
                 
               </form>
             </li>
 
-            <li class="prebooking__item">
-              <input id="cruises" name="prebooking" value="cruises" type="radio"><label class="prebooking__label cruises" for="cruises">Cruises</label>
-              <form class="form-none prebooking__form flights__form" action="cruises.php">
+            <li class="booking__item">
+              <input id="cruises" name="booking" value="cruises" type="radio"><label class="booking__label cruises" for="cruises">Круизы</label>
+              <form class="form-none booking__form flights__form" action="cruises.php">
                 
               </form>
             </li>
@@ -214,7 +214,7 @@
       </section>
 
       <section class="deals">
-        <div class="deals__wrapper">
+        <div class="deals__wrapper section__wrapper">
           <h2 class="deals__title section__title">Last minute deals</h2>
           <p class="line"><span class="line-inside"></span></p>
           <p class="deals__text section__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
@@ -303,7 +303,7 @@
       </section>
 
       <section class="services">
-        <div class="services__wrapper">
+        <div class="services__wrapper section__wrapper">
           <div class="services__text">
             <div class="services__text--wrapper">
               <h2 class="services__text--title lora-font">Lorem ipsum dolor adipiscing elit</h2>
@@ -366,7 +366,7 @@
       </section>
 
       <section class="popular">
-        <div class="popular__wrapper"> 
+        <div class="popular__wrapper section__wrapper"> 
           <h2 class="popular__title section__title">MOST POPULAR TOURS</h2>
           <p class="line"><span class="line-inside"></span></p>
           <p class="popular__text section__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
@@ -403,7 +403,7 @@
       </section>
 
       <section class="clients">
-        <div class="clients__wrapper">
+        <div class="clients__wrapper section__wrapper">
           <h2 class="clients__title section__title">Our happy clients</h2>
           <p class="line"><span class="line-inside"></span></p>
           <p class="popular__text section__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
@@ -440,7 +440,7 @@
     </main>
     
     <footer class="footer">
-      <div class="footer__wrapper">
+      <div class="footer__wrapper section__wrapper">
 
         <div class="footer__about footer__item">
           <h3 class="footer__about--title footer__title lora-font">About Company</h3>
@@ -521,8 +521,14 @@
         </div>
 
         <p class="footer__copyright lato-font">Copyright © 2020. All Rights Reserved.</p>
-      
+      </div>
+
+      <div class="footer__location--wrapper location__off">
+        <iframe class="footer__location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4700.475081906465!2d27.520918559561448!3d53.909754700863445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbc55f35bf3dad%3A0xaabda25bdeeb761f!2z0YPQuy4g0KHQutGA0YvQs9Cw0L3QvtCy0LAgMTQsINCc0LjQvdGB0Lo!5e0!3m2!1sru!2sby!4v1583080882488!5m2!1sru!2sby" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+        <button class="location__btn--off">Закрыть карту</button>
       </div>
     </footer>
+    <script src="js/menu.js"></script>
+    <script src="js/map.js"></script>
   </body>
 </html>
