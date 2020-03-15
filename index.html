@@ -70,13 +70,13 @@
 
           <ul class="booking__list">
             <li class="booking__item">
-              <input id="flights" name="booking" value="flights" type="radio" checked><label class="booking__label flights" for="flights">Полеты</label>
+              <input id="flights" name="booking" value="flights" type="radio" checked=""><label class="booking__label flights" for="flights">Полеты</label>
               <form class="booking__form" name="flights__form" action="php/flights.php">
                 <ul class="flights__formlist booking__formlist">
                   <li class="flights__item booking__formitem">
                     <label for="flights__from" class="flights__item--title formlist__title">Откуда:</label>
                     <select class="flights__item--input" name="flights__from" id="flights__from">
-                      <option value="placeholder-from" disabled selected hidden>Город вылета</option>
+                      <option value="placeholder-from" disabled="" selected="" hidden="">Город вылета</option>
                       <option value="Minsk">Минск</option>
                       <option value="Moscow">Москва</option>
                       <option value="Kiev">Киев</option>
@@ -88,7 +88,7 @@
                   <li class="flights__item booking__formitem">
                     <label for="flights__to" class="flights__item--title formlist__title">Куда:</label>
                     <select class="flights__item--input" name="flights__to" id="flights__to">
-                      <option value="placeholder-to" disabled selected hidden>Город прилета</option>
+                      <option value="placeholder-to" disabled="" selected="" hidden="">Город прилета</option>
                       <option value="Minsk">Минск</option>
                       <option value="Moscow">Москва</option>
                       <option value="Kiev">Киев</option>
@@ -109,7 +109,7 @@
                     <div class="adult">
                       <label for="adult" class="flights__item--title formlist__title">Взрослые:</label>
                       <select class="flights__item--input people-number" name="adult" id="adult">
-                        <option value="zero" selected disabled hidden>0</option>
+                        <option value="zero" selected="" disabled="" hidden="">0</option>
                         <option value="one">1</option>
                         <option value="two">2</option>
                         <option value="three">3</option>
@@ -127,7 +127,7 @@
                     <div class="child">
                       <label for="child" class="flights__item--title formlist__title">Дети:</label>
                       <select class="flights__item--input people-number" name="child" id="child">
-                        <option value="zero" selected>0</option>
+                        <option value="zero" selected="">0</option>
                         <option value="one">1</option>
                         <option value="two">2</option>
                         <option value="three">3</option>
@@ -155,9 +155,9 @@
               <form class="booking__form" name="hotels__form" action="php/hotels.php">
                 <ul class="booking__formlist">
                   <li class="booking__formitem">
-                    <label for="place__form" class="formlist__title">Место:</label>
+                    <label for="place__from" class="formlist__title">Место:</label>
                     <select class="place__item--input" name="place__from" id="place__from">
-                      <option value="placeholder-place" disabled selected hidden>Город</option>
+                      <option value="placeholder-place" disabled="" selected="" hidden="">Город</option>
                       <option value="Minsk">Минск</option>
                       <option value="Moscow">Москва</option>
                       <option value="Kiev">Киев</option>
@@ -167,9 +167,9 @@
                     </select>
                   </li>
                   <li class="booking__formitem">
-                    <label for="hotels" class="formlist__title">Жилье:</label>
-                    <select class="hotels__item--input" name="hotels" id="hotels">
-                      <option value="placeholder-hotels" disabled selected hidden>Вид жилья</option>
+                    <label for="place__val" class="formlist__title">Жилье:</label>
+                    <select class="hotels__item--input" name="place__val" id="place__val">
+                      <option value="placeholder-hotels" disabled="" selected="" hidden="">Вид жилья</option>
                       <option value="Minsk">Комнаты</option>
                       <option value="Moscow">Хотселы</option>
                       <option value="Kiev">Аппартаменты</option>
@@ -190,7 +190,7 @@
                     <div class="adult">
                       <label for="hotels-adult" class="formlist__title">Взрослые:</label>
                       <select class="hotels__item--input people-number" name="hotels-adult" id="hotels-adult">
-                        <option value="zero" selected disabled hidden>0</option>
+                        <option value="zero" selected="" disabled="" hidden="">0</option>
                         <option value="one">1</option>
                         <option value="two">2</option>
                         <option value="three">3</option>
@@ -208,7 +208,7 @@
                     <div class="child">
                       <label for="hotels-child" class="formlist__title">Дети:</label>
                       <select class="hotels__item--input people-number" name="hotels-child" id="hotels-child">
-                        <option value="zero" selected>0</option>
+                        <option value="zero" selected="">0</option>
                         <option value="one">1</option>
                         <option value="two">2</option>
                         <option value="three">3</option>
@@ -239,7 +239,7 @@
                   <li class="booking__formitem">
                     <label for="cars__from" class="formlist__title">Место:</label>
                     <select class="cars__item--input" name="cars__from" id="cars__from">
-                      <option value="placeholder-place" disabled selected hidden>Город</option>
+                      <option value="placeholder-place" disabled="" selected="" hidden="">Город</option>
                       <option value="Minsk">Минск</option>
                       <option value="Moscow">Москва</option>
                       <option value="Kiev">Киев</option>
@@ -249,9 +249,9 @@
                     </select>
                   </li>
                   <li class="booking__formitem">
-                    <label for="cars" class="formlist__title">Авто:</label>
-                    <select class="cars__item--input" name="cars" id="cars">
-                      <option value="placeholder-hotels" disabled selected hidden>Вид авто</option>
+                    <label for="cars__val" class="formlist__title">Авто:</label>
+                    <select class="cars__item--input" name="cars__val" id="cars__val">
+                      <option value="placeholder-hotels" disabled="" selected="" hidden="">Вид авто</option>
                       <option value="Minsk">Эконом</option>
                       <option value="Moscow">Стандарт</option>
                       <option value="Kiev">Премиум</option>
@@ -272,7 +272,7 @@
                     <div class="adult">
                       <label for="cars-adult" class="formlist__title">Взрослые:</label>
                       <select class="cars__item--input people-number" name="cars-adult" id="cars-adult">
-                        <option value="zero" selected disabled hidden>0</option>
+                        <option value="zero" selected="" disabled="" hidden="">0</option>
                         <option value="one">1</option>
                         <option value="two">2</option>
                         <option value="three">3</option>
@@ -290,7 +290,7 @@
                     <div class="child">
                       <label for="cars-child" class="formlist__title">Дети:</label>
                       <select class="cars__item--input people-number" name="cars-child" id="cars-child">
-                        <option value="zero" selected>0</option>
+                        <option value="zero" selected="">0</option>
                         <option value="one">1</option>
                         <option value="two">2</option>
                         <option value="three">3</option>
@@ -320,7 +320,7 @@
                   <li class="booking__formitem">
                     <label for="cruises__from" class="formlist__title">Откуда:</label>
                     <select class="cruises__item--input" name="cruises__from" id="cruises__from">
-                      <option value="placeholder-place" disabled selected hidden>Выберите город</option>
+                      <option value="placeholder-place" disabled="" selected="" hidden="">Выберите город</option>
                       <option value="Odessa">Одесса</option>
                       <option value="Barcelona">Барселона</option>
                       <option value="Amsterdam">Амстердам</option>
@@ -332,7 +332,7 @@
                   <li class="booking__formitem">
                     <label for="cruises-to" class="formlist__title">Куда:</label>
                     <select class="cruises__item--input" name="cruises-to" id="cruises-to">
-                      <option value="placeholder-hotels" disabled selected hidden>Выберите город</option>
+                      <option value="placeholder-hotels" disabled="" selected="" hidden="">Выберите город</option>
                       <option value="Odessa">Одесса</option>
                       <option value="Barcelona">Барселона</option>
                       <option value="Amsterdam">Амстердам</option>
@@ -353,7 +353,7 @@
                     <div class="adult">
                       <label for="cruises-adult" class="formlist__title">Взрослые:</label>
                       <select class="cruises__item--input people-number" name="cruises-adult" id="cruises-adult">
-                        <option value="zero" selected disabled hidden>0</option>
+                        <option value="zero" selected="" disabled="" hidden="">0</option>
                         <option value="one">1</option>
                         <option value="two">2</option>
                         <option value="three">3</option>
@@ -371,7 +371,7 @@
                     <div class="child">
                       <label for="cruises-child" class="formlist__title">Дети:</label>
                       <select class="cruises__item--input people-number" name="cruises-child" id="cruises-child">
-                        <option value="zero" selected>0</option>
+                        <option value="zero" selected="">0</option>
                         <option value="one">1</option>
                         <option value="two">2</option>
                         <option value="three">3</option>
@@ -714,19 +714,19 @@
             <h4 class="social__list--title lato-font">Мы в соцсетях</h4>
             <ul class="social__list">
               <li class="social__item">
-                <a class="social__item--link facebook" href="https://facebook.com" target="_blank" rel="noopener" class="social__link" title="facebook"></a>
+                <a class="social__item--link social__link facebook" href="https://facebook.com" target="_blank" rel="noopener" title="facebook"></a>
               </li>              
               <li class="social__item">
-                <a class="social__item--link vkontakte" href="https://vk.com"  target="_blank" rel="noopener" class="social__link" title="vkontakte"></a>
+                <a class="social__item--link social__link vkontakte" href="https://vk.com" target="_blank" rel="noopener" title="vkontakte"></a>
               </li>
               <li class="social__item">
-                <a class="social__item--link twitter" href="https://twitter.com" target="_blank" rel="noopener" class="social__link" title="twitter"></a>
+                <a class="social__item--link social__link twitter" href="https://twitter.com" target="_blank" rel="noopener" title="twitter"></a>
               </li>
               <li class="social__item">
-                <a class="social__item--link instagram" href="https://instagram.com"  target="_blank" rel="noopener" class="social__link" title="instagram"></a>
+                <a class="social__item--link social__link instagram" href="https://instagram.com" target="_blank" rel="noopener" title="instagram"></a>
               </li>
               <li class="social__item">
-                <a class="social__item--link youtube" href="https://youtube.com"  target="_blank" rel="noopener" class="social__link" title="youtube"></a>
+                <a class="social__item--link social__link youtube" href="https://youtube.com" target="_blank" rel="noopener" title="youtube"></a>
               </li>
             </ul>
           </div>
