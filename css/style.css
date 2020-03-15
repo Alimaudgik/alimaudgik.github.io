@@ -122,6 +122,22 @@ content, d/t/m: 85% / 90% / 95%
   .hot__item:last-child {
     margin-right: 0;
   }
+  @-webkit-keyframes hot-image {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.3);
+    }
+  }
+  @keyframes hot-image {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.3);
+    }
+  }
   .hot__link {
     display: block;
     width: 100%;
@@ -132,6 +148,8 @@ content, d/t/m: 85% / 90% / 95%
   }
   .hot__link:hover .hot__image {
     transform: scale(1.3);
+    -webkit-animation: hot-image 1s ease 1;
+            animation: hot-image 1s ease 1;
   }
   .hot__link:active {
     opacity: 0.3;
@@ -669,8 +687,6 @@ content, d/t/m: 85% / 90% / 95%
 body {
   margin: 0 auto;
   color: #000000;
-  border-width: 2px;
-  border-style: solid;
   background-color: lightblue;
 }
 *::-moz-selection {
@@ -759,7 +775,6 @@ a:active {
 @media (min-width: 1200px), (max-width: 1400px) {
   body {
     max-width: 1400px;
-    border-color: #000000;
   }
   .section__wrapper {
     margin: 0 auto;
@@ -769,7 +784,6 @@ a:active {
 @media (max-width: 1199px) {
   body {
     max-width: 1199px;
-    border-color: blue;
   }
   .section__wrapper {
     width: 90%;
@@ -779,7 +793,6 @@ a:active {
   body {
     min-width: 320px;
     max-width: 767px /*321px*/;
-    border: 2px solid yellow;
   }
   .section__wrapper {
     width: 95%;
@@ -1067,7 +1080,7 @@ content, d/t/m: 85% / 90% / 95%
   }
   .guides__contacts--button {
     position: absolute;
-    left: 30px;
+    left: 10px;
     bottom: -13px;
     width: 48px;
     height: 48px;
@@ -1091,31 +1104,39 @@ content, d/t/m: 85% / 90% / 95%
     transform: rotate(45deg);
   }
   .guides__contacts--button:hover {
-    background-color: #e4e4e4;
-  }
-  .guides__contacts--button:active {
     background-color: #da284f;
     border: 2px solid #ffffff;
   }
-  .guides__contacts--button:active::before {
+  .guides__contacts--button:hover::before {
     border-color: #ffffff;
   }
-  .guides__contacts--info {
-    display: none;
-    align-items: center;
-    flex-wrap: wrap;
+  .guides__contacts--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: absolute;
-    left: 10px;
+    left: 30px;
     bottom: -13px;
-    padding: 4px 20px;
-    width: 200px;
+    padding: 4px 0;
+    width: 0;
     height: 40px;
+    overflow: hidden;
+    transition: width, 1s;
     font-size: 1rem;
     color: #000000;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0px 0px 23px 0px rgba(0, 0, 0, 0.25);
     z-index: 10;
+  }
+  .guides__contacts--wrapper span,
+  .guides__contacts--wrapper a {
+    width: 200px;
+  }
+  .guides__contacts--button:hover + .guides__contacts--wrapper {
+    width: 200px;
+    padding-left: 40px;
+    padding-right: 10px;
   }
 }
 @media (max-width: 1199px) {
@@ -1133,9 +1154,16 @@ content, d/t/m: 85% / 90% / 95%
     font-size: 1rem;
   }
   .guides__contacts--info {
-    left: 0;
-    width: calc(85% - 40px);
     font-size: 0.9rem;
+  }
+  .guides__contacts--button:hover + .guides__contacts--wrapper {
+    width: calc(85% - 45px);
+  }
+  .guides__contacts--button {
+    left: 5px;
+  }
+  .guides__contacts--wrapper {
+    left: 25px;
   }
 }
 @media (max-width: 767px) {
@@ -1149,7 +1177,6 @@ content, d/t/m: 85% / 90% / 95%
     flex-wrap: wrap;
   }
   .guides__item {
-    border: 1px dashed red;
     flex-basis: 100%;
     margin-bottom: 40px;
     box-sizing: border-box;
@@ -1208,7 +1235,6 @@ content, d/t/m: 85% / 90% / 95%
   }
 }
 
-/*norm*/
 @font-face {
   font-family: "Raleway";
   font-weight: normal;
@@ -1223,22 +1249,20 @@ content, d/t/m: 85% / 90% / 95%
   font-display: swap;
   src: url("../fonts/Raleway/Raleway-Italic.woff") format("woff"), url("../fonts/Raleway/Raleway-Italic.woff2") format("woff2");
 }
-/*light*/
 @font-face {
   font-family: "Raleway";
-  font-weight: lighter;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
   src: url("../fonts/Raleway/Raleway-Light.woff") format("woff"), url("../fonts/Raleway/Raleway-Light.woff2") format("woff2");
 }
 @font-face {
   font-family: "Raleway";
-  font-weight: lighter;
+  font-weight: 400;
   font-style: italic;
   font-display: swap;
   src: url("../fonts/Raleway/Raleway-LightItalic.woff") format("woff"), url("../fonts/Raleway/Raleway-LightItalic.woff2") format("woff2");
 }
-/*bold*/
 @font-face {
   font-family: "Raleway";
   font-weight: bold;
@@ -1253,7 +1277,6 @@ content, d/t/m: 85% / 90% / 95%
   font-display: swap;
   src: url("../fonts/Raleway/Raleway-BoldItalic.woff") format("woff"), url("../fonts/Raleway/Raleway-BoldItalic.woff2") format("woff2");
 }
-/*lighter*/
 @font-face {
   font-family: "Raleway";
   font-weight: 200;
@@ -1268,7 +1291,6 @@ content, d/t/m: 85% / 90% / 95%
   font-display: swap;
   src: url("../fonts/Raleway/Raleway-ExtraLightItalic.woff") format("woff"), url("../fonts/Raleway/Raleway-ExtraLightItalic.woff2") format("woff2");
 }
-/*bolder*/
 @font-face {
   font-family: "Raleway";
   font-weight: 600 /*semibold*/;
@@ -1496,6 +1518,7 @@ content, d/t/m: 85% / 90% / 95%
   .footer__location--wrapper .footer__location {
     width: 100%;
     height: 100%;
+    border: none;
   }
   input {
     position: relative;
@@ -1751,6 +1774,10 @@ content, d/t/m: 85% / 90% / 95%
   }
   .social__list--title {
     text-align: center;
+  }
+  .email__button {
+    width: 33%;
+    font-size: 0.8rem;
   }
 }
 
@@ -2328,7 +2355,6 @@ content, d/t/m: 85% / 90% / 95%
     margin: 0 auto;
     margin-bottom: 25px;
     display: flex;
-    flex-flow: row-reverse nowrap;
     justify-content: center;
   }
   .deals__stars input {
@@ -2340,7 +2366,6 @@ content, d/t/m: 85% / 90% / 95%
     width: 15px;
     height: 15px;
     display: inline-block;
-    cursor: pointer;
   }
   .stars__label::before {
     content: '\f005';
@@ -2348,13 +2373,13 @@ content, d/t/m: 85% / 90% / 95%
     display: block;
     font-size: 15px;
     color: #ffc63f;
+    font-weight: bold;
+  }
+  .stars__label.current ~ .stars__label::before {
+    font-weight: normal;
   }
   .stars__label:first-child {
     margin-right: 0;
-  }
-  input[type=radio]:checked + .stars__label,
-  input[type=radio]:checked + .stars__label ~ .stars__label {
-    font-weight: bold;
   }
   .deals__tour--title {
     margin-bottom: 30px;
@@ -2690,6 +2715,10 @@ content, d/t/m: 85% / 90% / 95%
     margin-right: 0;
   }
   .flights__item--input,
+  .place__item--input,
+  .hotels__item--input,
+  .cars__item--input,
+  .cruises__item--input,
   .date {
     position: relative;
     padding: 10px 11px 7px;
@@ -2699,19 +2728,23 @@ content, d/t/m: 85% / 90% / 95%
     color: #000000;
     border: 1px solid #c5bcbc;
   }
-  .flights__item--input::-webkit-input-placeholder, .date::-webkit-input-placeholder {
+  .flights__item--input::-webkit-input-placeholder, .place__item--input::-webkit-input-placeholder, .hotels__item--input::-webkit-input-placeholder, .cars__item--input::-webkit-input-placeholder, .cruises__item--input::-webkit-input-placeholder, .date::-webkit-input-placeholder {
     color: #988d8d;
   }
-  .flights__item--input::-moz-placeholder, .date::-moz-placeholder {
+  .flights__item--input::-moz-placeholder, .place__item--input::-moz-placeholder, .hotels__item--input::-moz-placeholder, .cars__item--input::-moz-placeholder, .cruises__item--input::-moz-placeholder, .date::-moz-placeholder {
     color: #988d8d;
   }
-  .flights__item--input:-ms-input-placeholder, .date:-ms-input-placeholder {
+  .flights__item--input:-ms-input-placeholder, .place__item--input:-ms-input-placeholder, .hotels__item--input:-ms-input-placeholder, .cars__item--input:-ms-input-placeholder, .cruises__item--input:-ms-input-placeholder, .date:-ms-input-placeholder {
     color: #988d8d;
   }
-  .flights__item--input::-ms-input-placeholder, .date::-ms-input-placeholder {
+  .flights__item--input::-ms-input-placeholder, .place__item--input::-ms-input-placeholder, .hotels__item--input::-ms-input-placeholder, .cars__item--input::-ms-input-placeholder, .cruises__item--input::-ms-input-placeholder, .date::-ms-input-placeholder {
     color: #988d8d;
   }
   .flights__item--input::placeholder,
+  .place__item--input::placeholder,
+  .hotels__item--input::placeholder,
+  .cars__item--input::placeholder,
+  .cruises__item--input::placeholder,
   .date::placeholder {
     color: #988d8d;
   }
@@ -2796,9 +2829,10 @@ content, d/t/m: 85% / 90% / 95%
     font-size: 40px;
   }
   .benefits__item--title {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     font-size: 1.8rem;
     line-height: 1.8rem;
+    min-height: 3.6rem;
     text-align: center;
   }
   .benefits__item--text {
@@ -2847,9 +2881,9 @@ content, d/t/m: 85% / 90% / 95%
     font-size: 35px;
   }
   .benefits__item--title {
-    margin-bottom: 15px;
     font-size: 1.5rem;
     line-height: 1.5rem;
+    min-height: 3rem;
   }
   .benefits__item--image {
     margin-bottom: 20px;
@@ -2965,6 +2999,8 @@ content, d/t/m: 85% / 90% / 95%
   }
   .popular__item {
     width: 31%;
+    display: flex;
+    flex-direction: column;
     background-color: #ffffff;
   }
   .popular__image {
@@ -3005,7 +3041,7 @@ content, d/t/m: 85% / 90% / 95%
     text-align: center;
   }
   .popular__tour--more {
-    margin: 0 auto;
+    margin: auto auto 0;
     margin-bottom: 35px;
     text-align: center;
     text-transform: uppercase;
@@ -3392,6 +3428,15 @@ content, d/t/m: 85% / 90% / 95%
     line-height: 2.1rem;
     color: #000000;
   }
+  .news__text:hover::after {
+    opacity: 1;
+    color: #da284f;
+  }
+  .news__text::after {
+    content: '>>>';
+    margin-left: 5px;
+    color: #a0a0a0;
+  }
 }
 @media (max-width: 1199px) {
   .news__wrapper {
@@ -3499,9 +3544,11 @@ content, d/t/m: 85% / 90% / 95%
     background-repeat: no-repeat;
     background-size: cover;
   }
-  .page-inside .about__header,
-  .page-inside .tours__header {
+  .page-inside .about__header {
     background-image: url(../img/bg-about-header1400.jpg);
+  }
+  .page-inside .tours__header {
+    background-image: url(../img/bg-tours-header.jpg);
   }
   .page-inside .booking__header {
     background-image: url(../img/booking-bg-header-desk2.jpg);
@@ -4215,7 +4262,7 @@ content, d/t/m: 85% / 90% / 95%
     padding-bottom: 15px;
   }
   .promo__text {
-    margin-bottom: 105x;
+    margin-bottom: 105px;
     min-height: auto;
   }
 }
@@ -4294,7 +4341,7 @@ content, d/t/m: 85% / 90% / 95%
   .whyus__tourist {
     position: relative;
     flex-basis: 470px;
-    height: 624;
+    height: 624px;
     z-index: 20;
   }
   .whyus__tourist::before {

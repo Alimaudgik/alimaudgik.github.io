@@ -79,7 +79,7 @@
           <ul class="booking__list">
             <li class="booking__item">
               <input id="flights" name="booking" value="flights" type="radio" checked=""><label class="booking__label flights" for="flights">Полеты</label>
-              <form class="booking__form flights__form" action="flights.php">
+              <form class="booking__form" name="flights__form" action="php/flights.php">
                 <ul class="flights__formlist booking__formlist">
                   <li class="flights__item booking__formitem">
                     <label for="flights__from" class="flights__item--title formlist__title">Откуда:</label>
@@ -107,17 +107,18 @@
                   </li>
                   <li class="flights__item booking__formitem">
                     <label for="departing" class="flights__item--title formlist__title">Дата туда:</label>
-                    <input id="departing" class="date" type="text" name="departing" maxlength="10" placeholder="ДД.ММ.ГГГГ" pattern="[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}">
+                    <input id="departing" class="date" type="text" name="departing" maxlength="10" placeholder="ДД.ММ.ГГГГ" pattern="[0-9]{2}\.[0-9]{2}\.[0-9]{4}">
                   </li>
                   <li class="flights__item booking__formitem">
                     <label for="returning" class="flights__item--title formlist__title">Дата обратно:</label>
-                    <input id="returning" class="date" type="text" name="returning" maxlength="10" placeholder="ДД.ММ.ГГГГ" pattern="[0-9]{1,2}[.][0-9]{1,2}[.][0-9]{4}">
+                    <input id="returning" class="date" type="text" name="returning" maxlength="10" placeholder="ДД.ММ.ГГГГ" pattern="[0-9]{2}\.[0-9]{2}\.[0-9]{4}">
                   </li>
                   <li class="flights__item booking__formitem people-item">
                     <div class="adult">
                       <label for="adult" class="flights__item--title formlist__title">Взрослые:</label>
                       <select class="flights__item--input people-number" name="adult" id="adult">
-                        <option value="one" selected="">1</option>
+                        <option value="zero" selected="" disabled="" hidden="">0</option>
+                        <option value="one">1</option>
                         <option value="two">2</option>
                         <option value="three">3</option>
                         <option value="four">4</option>
@@ -134,7 +135,8 @@
                     <div class="child">
                       <label for="child" class="flights__item--title formlist__title">Дети:</label>
                       <select class="flights__item--input people-number" name="child" id="child">
-                        <option value="one" selected="">1</option>
+                        <option value="zero" selected="">0</option>
+                        <option value="one">1</option>
                         <option value="two">2</option>
                         <option value="three">3</option>
                         <option value="four">4</option>
@@ -158,22 +160,245 @@
 
             <li class="booking__item">
               <input id="hotels" name="booking" value="hotels" type="radio"><label class="booking__label hotels" for="hotels">Отели</label>
-              <form class="form-none booking__form flights__form" action="hotels.php">
+              <form class="booking__form" name="hotels__form" action="php/hotels.php">
+                <ul class="booking__formlist">
+                  <li class="booking__formitem">
+                    <label for="place__form" class="formlist__title">Место:</label>
+                    <select class="place__item--input" name="place__from" id="place__from">
+                      <option value="placeholder-place" disabled="" selected="" hidden="">Город</option>
+                      <option value="Minsk">Минск</option>
+                      <option value="Moscow">Москва</option>
+                      <option value="Kiev">Киев</option>
+                      <option value="Vilnius">Вильнюс</option>
+                      <option value="Warsaw">Варшава</option>
+                      <option value="Any">Любой</option>
+                    </select>
+                  </li>
+                  <li class="booking__formitem">
+                    <label for="hotels" class="formlist__title">Жилье:</label>
+                    <select class="hotels__item--input" name="hotels" id="hotels">
+                      <option value="placeholder-hotels" disabled="" selected="" hidden="">Вид жилья</option>
+                      <option value="Minsk">Комнаты</option>
+                      <option value="Moscow">Хотселы</option>
+                      <option value="Kiev">Аппартаменты</option>
+                      <option value="Vilnius">Отели</option>
+                      <option value="Warsaw">Дома</option>
+                      <option value="Any">Любой</option>
+                    </select>
+                  </li>
+                  <li class="booking__formitem">
+                    <label for="hotels-in" class="formlist__title">Заселение:</label>
+                    <input id="hotels-in" class="date" type="text" name="hotel-in" maxlength="10" placeholder="ДД.ММ.ГГГГ" pattern="[0-9]{2}\.[0-9]{2}\.[0-9]{4}">
+                  </li>
+                  <li class="booking__formitem">
+                    <label for="hotels-out" class="formlist__title">Выселение:</label>
+                    <input id="hotels-out" class="date" type="text" name="hotels-out" maxlength="10" placeholder="ДД.ММ.ГГГГ" pattern="[0-9]{2}\.[0-9]{2}\.[0-9]{4}">
+                  </li>
+                  <li class="booking__formitem people-item">
+                    <div class="adult">
+                      <label for="hotels-adult" class="formlist__title">Взрослые:</label>
+                      <select class="hotels__item--input people-number" name="hotels-adult" id="hotels-adult">
+                        <option value="zero" selected="" disabled="" hidden="">0</option>
+                        <option value="one">1</option>
+                        <option value="two">2</option>
+                        <option value="three">3</option>
+                        <option value="four">4</option>
+                        <option value="five">5</option>
+                        <option value="six">6</option>
+                        <option value="seven">7</option>
+                        <option value="eight">8</option>
+                        <option value="nine">9</option>
+                        <option value="ten">10</option>
+                        <option value="eleven">11</option>
+                        <option value="twelve">12</option>
+                      </select>
+                    </div>
+                    <div class="child">
+                      <label for="hotels-child" class="formlist__title">Дети:</label>
+                      <select class="hotels__item--input people-number" name="hotels-child" id="hotels-child">
+                        <option value="zero" selected="">0</option>
+                        <option value="one">1</option>
+                        <option value="two">2</option>
+                        <option value="three">3</option>
+                        <option value="four">4</option>
+                        <option value="five">5</option>
+                        <option value="six">6</option>
+                        <option value="seven">7</option>
+                        <option value="eight">8</option>
+                        <option value="nine">9</option>
+                        <option value="ten">10</option>
+                        <option value="eleven">11</option>
+                        <option value="twelve">12</option>
+                      </select>
+                    </div>
+                  </li>
+                  <li class="booking__formitem booking__button--wrapper">
+                    <input class="booking__button button" type="submit" value="Поиск">
+                  </li>
+                </ul>
                 
               </form>
             </li>
 
             <li class="booking__item">
               <input id="cars" name="booking" value="cars" type="radio"><label class="booking__label cars" for="cars">Авто</label>
-              <form class="form-none booking__form flights__form" action="cars.php">
-                
+              <form class="booking__form" name="cars__form" action="php/cars.php">
+                <ul class="booking__formlist">
+                  <li class="booking__formitem">
+                    <label for="cars__from" class="formlist__title">Место:</label>
+                    <select class="cars__item--input" name="cars__from" id="cars__from">
+                      <option value="placeholder-place" disabled="" selected="" hidden="">Город</option>
+                      <option value="Minsk">Минск</option>
+                      <option value="Moscow">Москва</option>
+                      <option value="Kiev">Киев</option>
+                      <option value="Vilnius">Вильнюс</option>
+                      <option value="Warsaw">Варшава</option>
+                      <option value="Any">Любой</option>
+                    </select>
+                  </li>
+                  <li class="booking__formitem">
+                    <label for="cars" class="formlist__title">Авто:</label>
+                    <select class="cars__item--input" name="cars" id="cars">
+                      <option value="placeholder-hotels" disabled="" selected="" hidden="">Вид авто</option>
+                      <option value="Minsk">Эконом</option>
+                      <option value="Moscow">Стандарт</option>
+                      <option value="Kiev">Премиум</option>
+                      <option value="Vilnius">Бизнес-класс</option>
+                      <option value="Warsaw">Премиум</option>
+                      <option value="Any">Любой</option>
+                    </select>
+                  </li>
+                  <li class="booking__formitem">
+                    <label for="cars-in" class="formlist__title">С:</label>
+                    <input id="cars-in" class="date" type="text" name="cars-in" maxlength="10" placeholder="ДД.ММ.ГГГГ" pattern="[0-9]{2}\.[0-9]{2}\.[0-9]{4}">
+                  </li>
+                  <li class="booking__formitem">
+                    <label for="cars-out" class="formlist__title">До:</label>
+                    <input id="cars-out" class="date" type="text" name="cars-out" maxlength="10" placeholder="ДД.ММ.ГГГГ" pattern="[0-9]{2}\.[0-9]{2}\.[0-9]{4}">
+                  </li>
+                  <li class="booking__formitem people-item">
+                    <div class="adult">
+                      <label for="cars-adult" class="formlist__title">Взрослые:</label>
+                      <select class="cars__item--input people-number" name="cars-adult" id="cars-adult">
+                        <option value="zero" selected="" disabled="" hidden="">0</option>
+                        <option value="one">1</option>
+                        <option value="two">2</option>
+                        <option value="three">3</option>
+                        <option value="four">4</option>
+                        <option value="five">5</option>
+                        <option value="six">6</option>
+                        <option value="seven">7</option>
+                        <option value="eight">8</option>
+                        <option value="nine">9</option>
+                        <option value="ten">10</option>
+                        <option value="eleven">11</option>
+                        <option value="twelve">12</option>
+                      </select>
+                    </div>
+                    <div class="child">
+                      <label for="cars-child" class="formlist__title">Дети:</label>
+                      <select class="cars__item--input people-number" name="cars-child" id="cars-child">
+                        <option value="zero" selected="">0</option>
+                        <option value="one">1</option>
+                        <option value="two">2</option>
+                        <option value="three">3</option>
+                        <option value="four">4</option>
+                        <option value="five">5</option>
+                        <option value="six">6</option>
+                        <option value="seven">7</option>
+                        <option value="eight">8</option>
+                        <option value="nine">9</option>
+                        <option value="ten">10</option>
+                        <option value="eleven">11</option>
+                        <option value="twelve">12</option>
+                      </select>
+                    </div>
+                  </li>
+                  <li class="booking__formitem booking__button--wrapper">
+                    <input class="booking__button button" type="submit" value="Поиск">
+                  </li>
+                </ul>
               </form>
             </li>
 
             <li class="booking__item">
               <input id="cruises" name="booking" value="cruises" type="radio"><label class="booking__label cruises" for="cruises">Круизы</label>
-              <form class="form-none booking__form flights__form" action="cruises.php">
-                
+              <form class="booking__form" name="cruises__form" action="php/cruises.php">
+                <ul class="booking__formlist">
+                  <li class="booking__formitem">
+                    <label for="cruises__from" class="formlist__title">Откуда:</label>
+                    <select class="cruises__item--input" name="cruises__from" id="cruises__from">
+                      <option value="placeholder-place" disabled="" selected="" hidden="">Выберите город</option>
+                      <option value="Odessa">Одесса</option>
+                      <option value="Barcelona">Барселона</option>
+                      <option value="Amsterdam">Амстердам</option>
+                      <option value="Marsell">Марсель</option>
+                      <option value="Rome">Рим</option>
+                      <option value="Any">Любой</option>
+                    </select>
+                  </li>
+                  <li class="booking__formitem">
+                    <label for="cruises-to" class="formlist__title">Куда:</label>
+                    <select class="cruises__item--input" name="cruises-to" id="cruises-to">
+                      <option value="placeholder-hotels" disabled="" selected="" hidden="">Выберите город</option>
+                      <option value="Odessa">Одесса</option>
+                      <option value="Barcelona">Барселона</option>
+                      <option value="Amsterdam">Амстердам</option>
+                      <option value="Marsell">Марсель</option>
+                      <option value="Rome">Рим</option>
+                      <option value="Any">Любой</option>
+                    </select>
+                  </li>
+                  <li class="booking__formitem">
+                    <label for="cruises-in" class="formlist__title">Дата туда:</label>
+                    <input id="cruises-in" class="date" type="text" name="cruises-in" maxlength="10" placeholder="ДД.ММ.ГГГГ" pattern="[0-9]{2}\.[0-9]{2}\.[0-9]{4}">
+                  </li>
+                  <li class="booking__formitem">
+                    <label for="cruises-out" class="formlist__title">Дата обратно:</label>
+                    <input id="cruises-out" class="date" type="text" name="cruises-out" maxlength="10" placeholder="ДД.ММ.ГГГГ" pattern="[0-9]{2}\.[0-9]{2}\.[0-9]{4}">
+                  </li>
+                  <li class="booking__formitem people-item">
+                    <div class="adult">
+                      <label for="cruises-adult" class="formlist__title">Взрослые:</label>
+                      <select class="cruises__item--input people-number" name="cruises-adult" id="cruises-adult">
+                        <option value="zero" selected="" disabled="" hidden="">0</option>
+                        <option value="one">1</option>
+                        <option value="two">2</option>
+                        <option value="three">3</option>
+                        <option value="four">4</option>
+                        <option value="five">5</option>
+                        <option value="six">6</option>
+                        <option value="seven">7</option>
+                        <option value="eight">8</option>
+                        <option value="nine">9</option>
+                        <option value="ten">10</option>
+                        <option value="eleven">11</option>
+                        <option value="twelve">12</option>
+                      </select>
+                    </div>
+                    <div class="child">
+                      <label for="cruises-child" class="formlist__title">Дети:</label>
+                      <select class="cruises__item--input people-number" name="cruises-child" id="cruises-child">
+                        <option value="zero" selected="">0</option>
+                        <option value="one">1</option>
+                        <option value="two">2</option>
+                        <option value="three">3</option>
+                        <option value="four">4</option>
+                        <option value="five">5</option>
+                        <option value="six">6</option>
+                        <option value="seven">7</option>
+                        <option value="eight">8</option>
+                        <option value="nine">9</option>
+                        <option value="ten">10</option>
+                        <option value="eleven">11</option>
+                        <option value="twelve">12</option>
+                      </select>
+                    </div>
+                  </li>
+                  <li class="booking__formitem booking__button--wrapper">
+                    <input class="booking__button button" type="submit" value="Поиск">
+                  </li>
+                </ul>
               </form>
             </li>
           </ul>
@@ -352,7 +577,7 @@
   
         <div class="footer__about footer__email footer__item">
           <h3 class="footer__about--title footer__title lora-font">Следите за нами</h3>
-          <p class="footer__about--text">Для получения информации о скидках, акциях, специальных предложений и последних новостей напишите свой e&ndash;mail</p>
+          <p class="footer__about--text">Для получения информации о скидках, акциях, специальных предложениях и последних новостях напишите свой e&ndash;mail</p>
 
           <form class="footer__about--email" action="join-mail.php">
             <div class="form__about--wrapper">
