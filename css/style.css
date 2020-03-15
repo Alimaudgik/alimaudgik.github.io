@@ -1330,6 +1330,7 @@ content, d/t/m: 85% / 90% / 95%
 }
 html {
   font-size: 14px;
+  font-family: 'Raleway', Arial, Helvetica, sans-serif;
 }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   font-family: 'Raleway', Arial, Helvetica, sans-serif;
@@ -1343,7 +1344,6 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 input::-ms-input-placeholder, textarea::-ms-input-placeholder {
   font-family: 'Raleway', Arial, Helvetica, sans-serif;
 }
-body,
 input,
 input::placeholder,
 textarea,
@@ -1801,15 +1801,7 @@ content, d/t/m: 85% / 90% / 95%
 }
 @media (min-width: 1200px), (max-width: 1400px) {
   .header {
-    /*
     position: relative;
-    background: url(../img/bg-index-header.jpg) center -140px no-repeat, lightblue;
-    background-size: 1400px auto;
-    padding-bottom: 1px;*/
-    /**/
-    position: relative;
-    background: url(../img/bg-index-header1400.jpg) center top no-repeat, lightblue;
-    background-size: cover;
     padding-bottom: 1px;
   }
   .header::before {
@@ -3539,10 +3531,14 @@ body mobile - min/max-width: 320px/767px;
 content, d/t/m: 85% / 90% / 95%
 */
 @media (min-width: 1200px), (max-width: 1400px) {
-  .page-inside .inside__header {
+  .header {
+    background-color: lightblue;
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+  .index__header {
+    background-image: url(../img/bg-index-header1400.jpg);
   }
   .page-inside .about__header {
     background-image: url(../img/bg-about-header1400.jpg);
@@ -3596,6 +3592,34 @@ content, d/t/m: 85% / 90% / 95%
   }
 }
 @media (max-width: 767px) {
+  /*
+  .index__header {
+    background-image: url(../img/bg-index-header1400-mob.jpg);
+  }
+
+  .page-inside .about__header {
+    background-image: url(../img/bg-about-header1400-mob.jpg);
+  }
+
+  .page-inside .tours__header {
+    background-image: url(../img/bg-tours-header-mob.jpg);
+  }
+
+  .page-inside .booking__header {
+    background-image: url(../img/booking-bg-header-desk2-mob.jpg);
+  }
+  
+  .page-inside .news__header {
+    background-image: url(../img/bg-news-header-mob.jpg);
+  }
+
+  .page-inside .reviews__header {
+    background-image: url(../img/bg-reviews-header-mob.jpg);
+  }
+
+  .page-inside .contacts__header {
+    background-image: url(../img/bg-contacts-header-mob.jpg);
+  }*/
   .page-inside .main-nav {
     margin-bottom: 40px;
   }
